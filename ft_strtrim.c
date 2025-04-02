@@ -13,7 +13,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int	ft_strstr(const char *big, const char *little)
+int	ft_strlen(char *str)
+{
+	char	*p;
+
+	p = str;
+	while (*str)
+		str++;
+	return (str - p);
+}
+
+char	*ft_strstr(const char *big, const char *little)
 {
 	char	*s1;
 	char	*s2;	
@@ -22,67 +32,50 @@ int	ft_strstr(const char *big, const char *little)
 	if (little == NULL)
 		return (0);
 	large = (char *)big;
-	printf("%p\n", large);
 	while (*large)
 	{	
 		if (*large == *little)
 		{
 			s1 = (char *)large;
 			s2 = (char *)little;
-			while (*s1 == *s2)
+			while (*s1 == *s2 && *s1)
 			{
 				s1++;
-				//printf("%p\n", s1);
 				s2++;
-				//printf("%p %p\n", s1);
 			}
-			if (*s2 == '\0' || *s1 == '\0')
-			{
-				printf("%p - %p\n", s1, big);
-				return (s1 - big);
-			}
+			if (*s2 == '\0')
+				return ((char *)s1);
 		}
 		large++;
 	}
-	return (-1);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	int	len;
-	
-	len = 0;
-	while (*s)
-	{
-		s++;
-		len++;
-	}
-	return (len);
+	return (NULL);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*p;
-	int		start;	
-	int		end;
+	char	*start;	
+	char	*end;
+	char	*res;
 
 	if (!s1)
 		return (NULL);
-	start = 0;
-	printf("%p\n", s1);
 	start = ft_strstr(s1, set);
-	printf("%d\n", start);
-	printf("%p\n", s1 + start);
-	end = ft_strstr(s1 + start, set);
-	printf("%d\n", end);
-	p = (char *)malloc((end - start) * sizeof(char));
-	return (p);
+	end = ft_strstr(start, set);
+	end -= ft_strlen((char *)set);
+	p = (char *)malloc((end - start + 1) * sizeof(char));
+	if (!p)
+		return (NULL);
+	res = p;
+	while (end > start)
+		*p++ = *start++;
+	*p = '\0';
+	return (res);
 }
 
 int	main()
 {
-	char	s1[] = "!* hello!!!world!* ";
-	char	set[] = "!* ";
-	//printf("%d", ft_strstr(s1, set, 0));	
+	char	s1[] = "!** hello!!!world!** ";
+	char	set[] = "!** ";
 	printf("%s\n", ft_strtrim(s1, set));
 }

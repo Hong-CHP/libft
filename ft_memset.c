@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -29,10 +30,10 @@ void	*ft_memset(void *s, int c, size_t n)
 	}	
 	return (p);
 }
-
+/*
 int	main()
 {
 	char str[] = "geeksforgeeks is for programming geeks.";
 	printf("%s\n", ft_memset(str, '.', 8));
 	printf("%s", memset(str, '.', 8));
-}
+}*/

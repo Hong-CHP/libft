@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 
 int	toupper(int c)
@@ -18,9 +19,9 @@ int	toupper(int c)
 		return (c - 32);
 	return (c);
 }
-
+/*
 int	main()
 {
 	printf("%c", toupper('S'));
  printf("%c", toupper('s'));
-}
+}*/

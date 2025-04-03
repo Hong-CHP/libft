@@ -1,58 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/01 17:53:40 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/04/01 18:24:45 by hporta-c         ###   ########.fr       */
+/*   Created: 2025/04/03 14:33:37 by hporta-c          #+#    #+#             */
+/*   Updated: 2025/04/03 14:53:47 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
-/*
-size_t	ft_strlen(const char *s)
-{
-	int	len;
-	
-	len = 0;
-	while (*s)
-	{
-		s++;
-		len++;
-	}
-	return (len);
-}*/
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	to_upper(unsigned int n, char c)
+{
+	(void)n;
+
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
+} 
+/*
+size_t	ft_strlen(char *str)
 {
 	char	*p;
-	char	*p1;
-	char	*p2;
-	char	*res;
 
-	if (!s1 || !s2)
+	p = str;
+	while (*p)
+		p++;
+	return (p - str);
+}*/
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	char	*p;
+	char	*res;
+	unsigned int	n;
+
+	res = (char *)malloc((ft_strlen((char *)s) + 1) * sizeof(char));
+	if (!res)
 		return (NULL);
-	p1 = (char *)s1;
-	p2 = (char *)s2;
-	p = (char *)malloc((ft_strlen(p1) + ft_strlen(p2) + 1) * sizeof(char));
-	if (!p)
-		return (NULL);
-	res = p;
-	while(*p1)
-		*p++ = *p1++;
-	while (*p2)
-		*p++ = *p2++;
-	*p = '\0';
-	return (res);
+	p = res;
+	n = 0;
+	while (*s)
+		*res++ = f(n++, *s++);
+	*res = '\0';
+	return (p); 
 }
 /*
 int	main()
 {
-	char *s1 = "gugu";
-	char *s2 = "hello";
-	printf("%s\n", ft_strjoin(s1, s2));
+	char str[] = "hello world";
+	char *new_str = ft_strmapi(str, to_upper);
+
+	printf("%s", new_str);
 }*/

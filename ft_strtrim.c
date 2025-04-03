@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+/*
 int	ft_strlen(char *str)
 {
 	char	*p;
@@ -21,9 +22,9 @@ int	ft_strlen(char *str)
 	while (*str)
 		str++;
 	return (str - p);
-}
+}*/
 
-char	*ft_strstr(const char *big, const char *little)
+char	*ft_strstr_trim(const char *big, const char *little)
 {
 	char	*s1;
 	char	*s2;	
@@ -60,8 +61,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1)
 		return (NULL);
-	start = ft_strstr(s1, set);
-	end = ft_strstr(start, set);
+	start = ft_strstr_trim(s1, set);
+	end = ft_strstr_trim(start, set);
 	end -= ft_strlen((char *)set);
 	p = (char *)malloc((end - start + 1) * sizeof(char));
 	if (!p)
@@ -72,10 +73,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	*p = '\0';
 	return (res);
 }
-
+/*
 int	main()
 {
 	char	s1[] = "!** hello!!!world!** ";
 	char	set[] = "!** ";
 	printf("%s\n", ft_strtrim(s1, set));
-}
+}*/

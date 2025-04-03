@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+/*
 void	ft_bzero(void *s, size_t n)
 {
 	char	*p;
@@ -26,14 +27,14 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 	return ;
-}
+}*/
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*p;
 
-	if (nmemb == 0 || size == 0)
-		return (NULL);
+	/*if (nmemb == 0 || size == 0)
+		return (NULL);*/
 	if (nmemb * size > 4294967295)
 		return (NULL);
 	p = malloc(nmemb * size);
@@ -42,10 +43,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ft_bzero(p, nmemb * size);
 	return (p);
 }
-		
+/*
 int main()
 {
 	int	*tab = ft_calloc(4, sizeof(int));
 	for (int i = 0; i < 4; i++)
 		printf("%d ", tab[i]);
-}
+}*/

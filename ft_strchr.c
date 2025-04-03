@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 
 char *ft_strchr(const char *s, int c)
@@ -25,7 +26,7 @@ char *ft_strchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
+/*
 int	main()
 {
 	const char *str = "GeeksforGeeks";
@@ -35,4 +36,4 @@ int	main()
 	
 //	printf("%s\n", p);
 	printf("%s", p1);
-}
+}*/

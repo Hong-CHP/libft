@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 #include <string.h>
 /*
@@ -50,7 +51,7 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
             return ((unsigned char)s1[i] - (unsigned char)s2[i]);
     return (0);
 }
-
+/*
 int	main()
 {
 	char *s1 = "pomme";
@@ -72,4 +73,4 @@ int	main()
     char *s12 = "abcd";
     printf("%d\n", strncmp(s3, s4, 4));
 	return (0);
-}
+}*/

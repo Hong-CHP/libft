@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 14:48:14 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/03/31 14:59:00 by hporta-c         ###   ########.fr       */
+/*   Created: 2025/04/03 15:28:01 by hporta-c          #+#    #+#             */
+/*   Updated: 2025/04/03 15:37:06 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
+#include <unistd.h>
 
-void	ft_bzero(void *s, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*p;
-	size_t	i;
+	long long	nb;
 	
-	i = 0;
-	p = (char *)s;
-	while(i < n)
+	nb = (long long)n;
+	if (nb < 0)
 	{
-		p[i] = '\0';
-		i++;
+		write(fd, "-", 1);
+		nb = -nb;
 	}
-	return ;
+	if (nb >= 0 && nb < 10)
+		write(fd, &(char){nb + '0'}, 1);
+	if (nb >= 10)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putnbr_fd(nb % 10, fd);
+	}
 }
 /*
 int	main()
 {
-	char str[] = "hello world";
-	int	arr[] = {23, 20, 25}; 
-	ft_bzero(arr, sizeof(arr));
-	bzero(str, 5);
-	printf("%s", str);
+	ft_putnbr_fd(5, 1);
 }*/

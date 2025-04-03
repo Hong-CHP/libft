@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+/*
 size_t	ft_strlen(const char *s)
 {
 	int	len;
@@ -24,7 +25,7 @@ size_t	ft_strlen(const char *s)
 		len++;
 	}
 	return (len);
-}
+}*/
 
 char	*ft_strdup(const char *s)
 {
@@ -45,9 +46,9 @@ char	*ft_strdup(const char *s)
 	*dst = '\0';
 	return (ptr);
 }
-
+/*
 int	main()
 {
 	char *str = "hello world!";
 	printf("%s\n", ft_strdup(str));	
-}	
+}*/	

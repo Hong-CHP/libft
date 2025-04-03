@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <string.h>
 #include <stdio.h>
 
@@ -30,7 +31,7 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return ((unsigned char)*p1 - (unsigned char)*p2);
 }
-
+/*
 int	main()
 {
 	char *s1 = "pomme";
@@ -45,4 +46,4 @@ int	main()
     char *s11 = "abc";
     char *s12 = "abcd";
     printf("%d\n", memcmp(s3, s4, 4));
-}
+}*/

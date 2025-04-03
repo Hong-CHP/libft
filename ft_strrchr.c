@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <string.h>
 #include <stdio.h>
-
+/*
 int	ft_strlen(char *str)
 {
 	char	*p;
@@ -21,7 +22,7 @@ int	ft_strlen(char *str)
 	while (*str)
 		str++;
 	return (str - p);
-}
+}*/
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -41,11 +42,11 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
+/*
 int	main()
 {
 	char *str = "GeeksforGeeks is for programming geeks.";
 	
 	printf("%s\n", ft_strrchr(str, 'f'));
 	printf("%s\n", strrchr(str, 'f'));
-}
+}*/

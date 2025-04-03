@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 
 int	ft_atoi(char *str)
@@ -21,7 +22,7 @@ int	ft_atoi(char *str)
 	flag = 1;
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
-	while (*str == '+' || *str == '-')
+	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
 			flag *= -1;
@@ -35,8 +36,8 @@ int	ft_atoi(char *str)
 	}
 	return (nb * flag);
 }
-
+/*
 int main()
 {
 	printf("%d", ft_atoi("-2147483648"));
-}
+}*/

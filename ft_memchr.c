@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <string.h>
 #include <stdio.h>
 
@@ -29,7 +30,7 @@ void	*ft_memchr(const void*s, int c, size_t n)
 	}
 	return (NULL);
 }
-
+/*
 int	main()
 {
 	const char *str = "GeeksforGeeks";
@@ -38,4 +39,4 @@ int	main()
 //	char *p1 = ft_strchr(str, c);
 //	printf("%s\n", p);
 	printf("%s", ft_memchr(str, 's', 10));
-}
+}*/

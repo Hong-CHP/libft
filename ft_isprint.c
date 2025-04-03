@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 
 int	ft_isprint(int c)
@@ -18,11 +19,11 @@ int	ft_isprint(int c)
 		return (1);
 	return (0);
 }
-
+/*
 int	main()
 {
 	 printf("%d ", ft_isprint(48));
 	 printf("%d ", ft_isprint(57));
 	 printf("%d ", ft_isprint(0));
 	 printf("%d ", ft_isprint(127));
-}
+}*/

@@ -14,31 +14,33 @@
 #include <stdio.h>
 #include <string.h>
 
+//if size <= dest_len
+//if size > dest_len && size < dest_len + src_len
+//if size >= dest_len + src_len
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	d_len;
 	size_t	s_len;
 	char	*p;
-	
+	size_t	i;
+
 	d_len = 0;
 	s_len = 0;
 	p = dest;
-	while (*p)
-	{
-		p++;
+	while (p[d_len])
 		d_len++;
-	}
 	while (src[s_len])
 		s_len++;
 	if (size <= d_len)
 		return (s_len + size);
-	while (size - 1 > 0 && *src)
+	p = dest + d_len; 
+	i = 0;
+	while ((size - d_len - 1) > i && src[i])
 	{
-		*p++ = *src++;
-		size--;
+		p[i] = src[i];
+		i++;
 	}
-	//printf("%lu", d_len + s_len);
-	*p = '\0';
+	p[i] = '\0';
 	return (d_len + s_len);	
 }
 /*
@@ -51,7 +53,7 @@ int	main()
 	printf("%zu\n", ft_strlcat(dest, str, 4));
 	printf("%s\n", dest);
 }*/
-
+/*
 int main(void)
 {
 	char	dst[30];
@@ -66,3 +68,4 @@ int main(void)
 		else
 			printf("?");
 }
+*/

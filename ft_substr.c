@@ -20,6 +20,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	i;
 	char	*p;
 
+	if (!s)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	if (start + len > ft_strlen(s))
+		len = ft_strlen(s) - start;
 	res = (char *)malloc((len + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
@@ -35,8 +41,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 /*
 int	main()
 {
-	char *str = "hello world!";
-	printf("%s\n", ft_substr(str, 6, 3));
+//	char *str = "hello world!";
+	printf("%s\n", ft_substr("This is an example string", 40, 25));
 }*/
-
-

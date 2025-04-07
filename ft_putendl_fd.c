@@ -6,7 +6,7 @@
 /*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:21:31 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/04/03 15:27:33 by hporta-c         ###   ########.fr       */
+/*   Updated: 2025/04/07 11:10:23 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	while (*s)
 		write(fd, s++, 1);
 	write(fd, "\n", 1);

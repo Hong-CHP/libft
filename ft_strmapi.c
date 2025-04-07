@@ -6,14 +6,14 @@
 /*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 14:33:37 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/04/03 14:53:47 by hporta-c         ###   ########.fr       */
+/*   Updated: 2025/04/07 15:27:49 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+/*
 char	to_upper(unsigned int n, char c)
 {
 	(void)n;
@@ -22,7 +22,7 @@ char	to_upper(unsigned int n, char c)
 		c -= 32;
 	return (c);
 } 
-/*
+
 size_t	ft_strlen(char *str)
 {
 	char	*p;
@@ -39,6 +39,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*res;
 	unsigned int	n;
 
+	if (!s)
+		return (NULL);
 	res = (char *)malloc((ft_strlen((char *)s) + 1) * sizeof(char));
 	if (!res)
 		return (NULL);

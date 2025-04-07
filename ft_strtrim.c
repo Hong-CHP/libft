@@ -3,80 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hporta-c <hporta-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/02 10:40:45 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/04/02 13:10:31 by hporta-c         ###   ########.fr       */
+/*   Created: 2025/04/07 17:43:08 by hporta-c          #+#    #+#             */
+/*   Updated: 2025/04/07 19:05:01 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
-/*
-int	ft_strlen(char *str)
+
+int	is_set(char c, char const *set)
 {
-	char	*p;
-
-	p = str;
-	while (*str)
-		str++;
-	return (str - p);
-}*/
-
-char	*ft_strstr_trim(const char *big, const char *little)
-{
-	char	*s1;
-	char	*s2;	
-	char	*large;
-
-	if (little == NULL)
-		return (0);
-	large = (char *)big;
-	while (*large)
-	{	
-		if (*large == *little)
-		{
-			s1 = (char *)large;
-			s2 = (char *)little;
-			while (*s1 == *s2 && *s1)
-			{
-				s1++;
-				s2++;
-			}
-			if (*s2 == '\0')
-				return ((char *)s1);
-		}
-		large++;
+	while (*set)
+	{
+		if (*set == c)
+			return (1);
+		set++;
 	}
-	return (NULL);
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*p;
-	char	*start;	
-	char	*end;
-	char	*res;
+	int	start;
+	int end;
+	char *dst;
 
-	if (!s1)
+	if (!s1 || s1[0] == '\0')
 		return (NULL);
-	start = ft_strstr_trim(s1, set);
-	end = ft_strstr_trim(start, set);
-	end -= ft_strlen((char *)set);
-	p = (char *)malloc((end - start + 1) * sizeof(char));
-	if (!p)
-		return (NULL);
-	res = p;
-	while (end > start)
-		*p++ = *start++;
-	*p = '\0';
-	return (res);
+	if (!set || set[0] == '\0')
+		return (ft_strdup(s1));
+	start = 0;
+	while (is_set(s1[start], set) == 1)
+		start++;
+	end = ft_strlen(s1) - 1;
+	while (is_set(s1[end], set) == 1)
+		end--;
+	if (end < start)
+		return (ft_strdup(""));
+	dst = ft_substr(s1, start, end - start + 1);
+	return (dst);
 }
-/*
-int	main()
-{
-	char	s1[] = "!** hello!!!world!** ";
-	char	set[] = "!** ";
-	printf("%s\n", ft_strtrim(s1, set));
-}*/

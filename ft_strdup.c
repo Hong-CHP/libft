@@ -6,45 +6,31 @@
 /*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 17:13:41 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/04/01 17:27:42 by hporta-c         ###   ########.fr       */
+/*   Updated: 2025/04/07 12:49:05 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
-/*
-size_t	ft_strlen(const char *s)
-{
-	int	len;
-	
-	len = 0;
-	while (*s)
-	{
-		s++;
-		len++;
-	}
-	return (len);
-}*/
 
 char	*ft_strdup(const char *s)
 {
-	char	*p;
+	const char	*p;
 	char	*dst;
 	char	*ptr;
 
 	if (!s)
 		return (NULL);
-	p = (char *)s;
-	printf("%s\n", p); 
+	p = (const char *)s;
 	dst = (char *)malloc((ft_strlen(p) + 1) * sizeof(char));
-	ptr = dst;
 	if (!dst)
 		return (NULL);
+	ptr = dst;
 	while (*p)
-		*dst++ = *p++;
-	*dst = '\0';
-	return (ptr);
+		*ptr++ = *p++;
+	*ptr = '\0';
+	return (dst);
 }
 /*
 int	main()

@@ -6,7 +6,7 @@
 /*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:29:20 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/04/01 11:50:24 by hporta-c         ###   ########.fr       */
+/*   Updated: 2025/04/07 16:35:43 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <string.h>
 #include <stdio.h>
 /*
-int	ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
 	char	*p;
 
@@ -26,27 +26,30 @@ int	ft_strlen(char *str)
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*p;
-	int	len;
+	const char	*p;
+	int			len;
+	char		*res;
 
-	p = (char *)s;
-	len = ft_strlen(p);
-	printf("%d\n", len); 	
-	if (p == NULL)
+	if (!s)
 		return (NULL);
-	while (len - 1 > 0)
+	p = s;
+	res = (char *)p;
+	len = ft_strlen(res);
+	if (c == '\0')
+		return ("");
+	while (len >= 0)
 	{
-		if (p[len] == c)
-			return (p + len);
 		len--;
+		if (res[len] == c)
+			return (res + len);
 	}
 	return (NULL);
 }
 /*
 int	main()
 {
-	char *str = "GeeksforGeeks is for programming geeks.";
+	char str[] = "a,b,c";
 	
-	printf("%s\n", ft_strrchr(str, 'f'));
-	printf("%s\n", strrchr(str, 'f'));
+	printf("%s\n", ft_strrchr(str, 'a'));
+	//printf("%s\n", strrchr(str, 'a'));
 }*/

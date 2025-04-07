@@ -6,7 +6,7 @@
 /*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:23:41 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/04/04 16:42:28 by hporta-c         ###   ########.fr       */
+/*   Updated: 2025/04/07 10:36:57 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_list	*ft_lstmap_bonus(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		new_node = (t_list*)malloc(sizeof(t_list));
 		if (!new_node)
 		{
-			ft_lstclear(&new_node, ft_del_ele);
+			ft_lstclear_bonus(&new_node, del); 
 			return (NULL);
 		}
 		new_node->content = f(curr->content);

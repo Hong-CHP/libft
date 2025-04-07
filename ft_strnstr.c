@@ -6,7 +6,7 @@
 /*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:09:09 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/04/01 15:16:42 by hporta-c         ###   ########.fr       */
+/*   Updated: 2025/04/07 16:10:22 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	char	*s2;	
 	char	*large;
 
-	if (little == NULL)
+	if (!*little)
 		return ((char *)big);
 	i = 0;
 	large = (char *)big;
@@ -31,7 +31,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		{
 			s1 = (char *)large;
 			s2 = (char *)little;
-			while (*s1 == *s2)
+			while (*s1 == *s2 && (size_t)(s1 - big) < len)
 			{
 				s1++;
 				s2++;

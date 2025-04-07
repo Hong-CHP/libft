@@ -6,7 +6,7 @@
 /*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:56:39 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/04/03 12:52:16 by hporta-c         ###   ########.fr       */
+/*   Updated: 2025/04/07 12:49:54 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ char	*allocate_copy_tab(int word_len, char *str)
 	p = (char *)malloc((word_len + 1) * sizeof(char));
 	if (!p)
 		return (NULL);
-	word = p;
-	word[word_len] = '\0';
+	word = p; 
+	p[word_len] = '\0';
 	while (word_len > 0)
 	{
 		*p++ = *str++;
@@ -90,7 +90,7 @@ char	**ft_fill_split(char **tab, char *str, char c, int *tab_i)
 		i++;
 	}
 	if (word_len > 0)
-		tab[*tab_i] = allocate_copy_tab(word_len, &str[i - word_len]);
+		tab[(*tab_i)++] = allocate_copy_tab(word_len, &str[i - word_len]);
 	return (tab);
 }
 
@@ -106,6 +106,7 @@ char	**ft_split(char	const *s, char c)
 	if (!tab)
 		return (NULL);
 	ft_fill_split(tab, str, c, &tab_i);
+	//printf("%d\n", tab_i);
 	tab[tab_i] = NULL;
 	return (tab);
 }

@@ -3,39 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hporta-c <hporta-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:52:31 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/04/01 17:07:11 by hporta-c         ###   ########.fr       */
+/*   Updated: 2025/04/08 18:26:15 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
-/*
-void	ft_bzero(void *s, size_t n)
-{
-	char	*p;
-	size_t	i;
-	
-	i = 0;
-	p = (char *)s;
-	while(i < n)
-	{
-		p[i] = '\0';
-		i++;
-	}
-	return ;
-}*/
+#include <stdint.h>
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*p;
 
-	/*if (nmemb == 0 || size == 0)
-		return (NULL);*/
-	if (nmemb * size > 4294967295)
+	if (nmemb > SIZE_MAX / size)
 		return (NULL);
 	p = malloc(nmemb * size);
 	if (!p)
@@ -46,7 +30,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 /*
 int main()
 {
-	int	*tab = ft_calloc(4, sizeof(int));
+	int	*tab = ft_calloc(-5, -5);
 	for (int i = 0; i < 4; i++)
 		printf("%d ", tab[i]);
 }*/

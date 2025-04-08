@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hporta-c <hporta-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 16:19:34 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/04/04 16:40:10 by hporta-c         ###   ########.fr       */
+/*   Created: 2025/04/04 16:17:25 by hporta-c          #+#    #+#             */
+/*   Updated: 2025/04/08 12:07:30 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back_bonus(t_list **lst, t_list *new)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*curr;
-	
-	if (*lst == NULL)
+	t_list	*last;
+
+	last = lst;
+	while (last)
 	{
-		*lst = new;
-		return ;
+		if (last->next == NULL)
+			return (last);
+		last = last->next;
 	}
-	curr = *lst;
-	while (curr->next)
-		curr = curr->next;
-	//inserer entre curr et NULL un new ele
-	curr->next = new;
-	new->next = NULL;
+	return (NULL);
 }

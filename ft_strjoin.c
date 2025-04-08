@@ -16,10 +16,10 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*p;
+	char		*p;
 	char const	*p1;
 	char const	*p2;
-	char	*res;
+	char		*res;
 
 	if (!s1)
 		s1 = "";
@@ -31,7 +31,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!p)
 		return (NULL);
 	res = p;
-	while(*p1)
+	while (*p1)
 		*res++ = *p1++;
 	while (*p2)
 		*res++ = *p2++;

@@ -37,9 +37,9 @@ size_t	ft_strlen(char *str)
 void	ft_striteri(char *s, void (*f)(unsigned int, char *s))
 {
 	unsigned int	n;
-	
+
 	if (!s)
-		return ;	
+		return ;
 	n = 0;
 	while (s[n])
 	{

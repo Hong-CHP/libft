@@ -18,7 +18,7 @@ int	ft_itoa_len(int n)
 {
 	long long	nb;
 	int			len;
-	
+
 	len = 0;
 	nb = (long long)n;
 	if (n <= 0)
@@ -41,8 +41,8 @@ char	*ft_itoa(int n)
 	long long	nb;
 	int			len;
 	char		*p;
-	
-	len = ft_itoa_len(n); 
+
+	len = ft_itoa_len(n);
 	p = (char *)malloc((len + 1) * sizeof(char));
 	if (!p)
 		return (NULL);

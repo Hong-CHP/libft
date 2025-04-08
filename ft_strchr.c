@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hporta-c <hporta-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 12:01:44 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/04/07 12:11:03 by hporta-c         ###   ########.fr       */
+/*   Updated: 2025/04/08 18:28:21 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 #include <stdio.h>
 #include <string.h>
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	const char	*p;
+	const char			*p;
+	unsigned char		ch;
 
-	p = (const char *)s;
-	if (c == '\0')
-		return ((char *)(p + ft_strlen(p)));
+	p = s;
+	ch = (unsigned char)c;
 	while (*p)
 	{
-		if (*p == c)
+		if (*p == ch)
 			return ((char *)p);
 		p++;
 	}
+	if (ch == '\0')
+		return ((char *)p);
 	return (NULL);
 }
 /*

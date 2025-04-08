@@ -57,20 +57,20 @@ char	*allocate_copy_tab(int word_len, char *str)
 	p = (char *)malloc((word_len + 1) * sizeof(char));
 	if (!p)
 		return (NULL);
-	word = p; 
+	word = p;
 	p[word_len] = '\0';
 	while (word_len > 0)
 	{
 		*p++ = *str++;
 		word_len--;
 	}
-	return (word);	
-}	
+	return (word);
+}
 
 char	**ft_fill_split(char **tab, char *str, char c, int *tab_i)
 {
 	int	word_len;
-	int i;
+	int	i;
 
 	word_len = 0;
 	i = 0;
@@ -84,7 +84,7 @@ char	**ft_fill_split(char **tab, char *str, char c, int *tab_i)
 				(*tab_i)++;
 				word_len = 0;
 			}
-		}	
+		}
 		else
 			word_len++;
 		i++;
@@ -96,9 +96,9 @@ char	**ft_fill_split(char **tab, char *str, char c, int *tab_i)
 
 char	**ft_split(char	const *s, char c)
 {
-	char **tab;
-	char *str;
-	int	tab_i;
+	char	**tab;
+	char	*str;
+	int		tab_i;
 
 	tab_i = 0;
 	str = (char *)s;
@@ -106,7 +106,6 @@ char	**ft_split(char	const *s, char c)
 	if (!tab)
 		return (NULL);
 	ft_fill_split(tab, str, c, &tab_i);
-	//printf("%d\n", tab_i);
 	tab[tab_i] = NULL;
 	return (tab);
 }

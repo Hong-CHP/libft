@@ -17,8 +17,8 @@
 char	*ft_strdup(const char *s)
 {
 	const char	*p;
-	char	*dst;
-	char	*ptr;
+	char		*dst;
+	char		*ptr;
 
 	if (!s)
 		return (NULL);

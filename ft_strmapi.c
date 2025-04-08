@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hporta-c <hporta-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 14:33:37 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/04/07 15:27:49 by hporta-c         ###   ########.fr       */
+/*   Updated: 2025/04/08 18:30:04 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ size_t	ft_strlen(char *str)
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*p;
-	char	*res;
+	char			*p;
+	char			*res;
 	unsigned int	n;
 
 	if (!s)
@@ -49,7 +49,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	while (*s)
 		*res++ = f(n++, *s++);
 	*res = '\0';
-	return (p); 
+	return (p);
 }
 /*
 int	main()

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hporta-c <hporta-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:09:09 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/04/07 16:10:22 by hporta-c         ###   ########.fr       */
+/*   Updated: 2025/04/08 18:30:49 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 				s2++;
 			}
 			if (*s2 == '\0')
-				return ((char*)large);
+				return ((char *)large);
 		}
 		large++;
 		i++;

@@ -28,12 +28,14 @@ int	is_set(char c, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	start;
-	int end;
-	char *dst;
+	int		start;
+	int		end;
+	char	*dst;
 
-	if (!s1 || s1[0] == '\0')
+	if (!s1)
 		return (NULL);
+	if (s1[0] == '\0')
+		return (ft_strdup(""));
 	if (!set || set[0] == '\0')
 		return (ft_strdup(s1));
 	start = 0;

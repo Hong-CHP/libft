@@ -3,44 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hporta-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hporta-c <hporta-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:29:20 by hporta-c          #+#    #+#             */
-/*   Updated: 2025/04/07 16:35:43 by hporta-c         ###   ########.fr       */
+/*   Updated: 2025/04/08 18:31:44 by hporta-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
 #include <stdio.h>
-/*
-size_t	ft_strlen(char *str)
-{
-	char	*p;
-
-	p = str;
-	while (*str)
-		str++;
-	return (str - p);
-}*/
 
 char	*ft_strrchr(const char *s, int c)
 {
-	const char	*p;
-	int			len;
-	char		*res;
+	const char		*p;
+	int				len;
+	char			*res;
+	unsigned char	ch;
 
-	if (!s)
+	if (s == NULL)
 		return (NULL);
 	p = s;
 	res = (char *)p;
+	ch = (unsigned char)c;
 	len = ft_strlen(res);
-	if (c == '\0')
-		return ("");
+	if (ch == '\0')
+		return (res + len);
 	while (len >= 0)
 	{
 		len--;
-		if (res[len] == c)
+		if (res[len] == ch)
 			return (res + len);
 	}
 	return (NULL);
@@ -48,8 +40,8 @@ char	*ft_strrchr(const char *s, int c)
 /*
 int	main()
 {
-	char str[] = "a,b,c";
+	char str[] = "bonjour";
 	
-	printf("%s\n", ft_strrchr(str, 'a'));
-	//printf("%s\n", strrchr(str, 'a'));
+	printf("%s\n", ft_strrchr(str, 's'));
+	printf("%s\n", strrchr(str, 's'));
 }*/

@@ -17,6 +17,30 @@
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
+	size_t	j;
+
+	if (!*little)
+		return ((char *)big);
+	i = 0;
+	while (big[i] && i < len)
+	{
+		j = 0;
+		if (big[i] == little[j])
+		{
+			while (big[i + j] == little[j]
+				&& little[j] && (i + j) < len)
+				j++;
+			if (little[j] == '\0')
+				return ((char *)&big[i]);
+		}
+		i++;
+	}
+	return (NULL);
+}
+/*
+char	*ft_strnstr(const char *big, const char *little, size_t len)
+{
+	size_t	i;
 	char	*s1;
 	char	*s2;	
 	char	*large;
@@ -43,7 +67,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		i++;
 	}
 	return (NULL);
-}
+}*/
 /*
 int main()
 {
@@ -62,4 +86,4 @@ int main()
 	printf("%s\n", ptr);
     //ptr = strnstr(largestring, smallstring, 11);
    // printf("%s\n", ptr);
-}	*/
+}*/

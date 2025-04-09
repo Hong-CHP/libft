@@ -29,7 +29,7 @@ char	*ft_strrchr(const char *s, int c)
 	len = ft_strlen(res);
 	if (ch == '\0')
 		return (res + len);
-	while (len >= 0)
+	while (len > 0)
 	{
 		len--;
 		if (res[len] == ch)
